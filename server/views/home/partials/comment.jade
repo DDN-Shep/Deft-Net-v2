@@ -1,0 +1,12 @@
+.media
+   a.pull-left(href='#')
+      img.media-object(src='http://placehold.it/64x64', alt='')
+   .media-body
+      .media-heading
+         // Comment Title + Date + Time
+         strong {{ comment.title }}
+         |  by {{ comment.createdBy }}
+         p
+            span.glyphicon.glyphicon-time
+            |  Posted on {{ comment.createdOn }}
+         p {{ comment.content }}

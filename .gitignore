@@ -1,0 +1,22 @@
+# Node packages
+node_modules
+
+# WebStorm configuration
+.idea
+
+# Compiled source
+*.dll
+*.exe
+
+# Packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases
+*.log

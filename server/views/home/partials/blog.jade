@@ -1,0 +1,20 @@
+.row
+   .col-lg-8
+      h1 {{ post.title }}
+      .row
+         .col-lg-12
+            hr
+            p
+               span.glyphicon.glyphicon-time
+               |  Posted on {{ post.createdOn }}
+            hr
+            img.img-responsive(src='http://placehold.it/900x200', alt='')
+            p.lead {{ post.content }}
+            hr
+            include comment-form
+            hr
+            include comment
+   .col-lg-4
+      include me
+      include categories
+      include recent

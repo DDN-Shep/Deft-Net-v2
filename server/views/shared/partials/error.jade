@@ -1,0 +1,5 @@
+.panel.panel-danger
+  .panel-heading
+    h3.panel-title= error.status + ': ' + message
+  .panel-body
+    pre #{error.stack}
