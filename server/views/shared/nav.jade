@@ -1,4 +1,4 @@
-nav.navbar.navbar-inverse.navbar-fixed-top
+nav.navbar.navbar-inverse.navbar-fixed-top(ng-controller="navCtrl")
   .container
     .navbar-header
       button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
@@ -8,20 +8,20 @@ nav.navbar.navbar-inverse.navbar-fixed-top
       a.navbar-brand(href='/') Deft-Net
     .collapse.navbar-collapse
       ul.nav.navbar-nav
-        li.active
+        li(ng-class='{ active: isActive("/") }')
           a(href='/') Home
-        li
+        li(ng-class='{ active: isActive("/about") }')
           a(href='/about') About
-        li
-          a(href='/contact') Portfolio
+        li(ng-class='{ active: isActive("/portfolio") }')
+          a(href='/portfolio') Portfolio
       form.navbar-form.navbar-left(role='search')
         .form-group
           input.form-control(type='text', placeholder='Search')
         button.btn.btn-default Search
       ul.nav.navbar-nav.navbar-right
-        li
+        li(ng-class='{ active: isActive("/account/signup") }')
           a(href='/account/signup') Sign Up
-        li
+        li(ng-class='{ active: isActive("/account/signin") }')
           a(href='/account/signin') Sign In
         li
           a(href='#') Welcome ...
