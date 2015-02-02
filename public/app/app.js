@@ -3,7 +3,7 @@ angular.module('ddnApp', ['ngResource', 'ngRoute']);
 angular.module('ddnApp').config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 	$locationProvider
 		.html5Mode({
-			enabled: true,
+			enabled: false,
 			requireBase: false
 		});
 
@@ -17,5 +17,9 @@ angular.module('ddnApp').config(['$routeProvider', '$locationProvider', function
 		})
 		.when('/account/signup', {
 			templateUrl: '/account/partials/signup'
-		});
+		})
+        .otherwise({
+            redirectTo: '/'
+        })
+    ;
 }]);

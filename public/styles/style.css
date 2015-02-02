@@ -15,8 +15,15 @@ p {
 .ddn-va-bottom span {
   vertical-align: bottom;
 }
-a {
+a,
+a:active,
+a:disabled,
+a:focus,
+a:hover,
+a:link,
+a:visited {
   outline: 0;
+  border: 0;
 }
 a::-moz-focus-inner,
 button::-moz-focus-inner,
@@ -24,6 +31,7 @@ input[type="reset"]::-moz-focus-inner,
 input[type="button"]::-moz-focus-inner,
 input[type="submit"]::-moz-focus-inner,
 input[type="file"] > input[type="button"]::-moz-focus-inner {
+  outline: 0;
   border: 0;
 }
 .well {
