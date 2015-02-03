@@ -1,4 +1,6 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+    identity = require('../auth/identity');
+    user     = require('./schema/user');
 
 module.exports = function(config) {
 	mongoose.connect(config.db.connection);
@@ -9,21 +11,21 @@ module.exports = function(config) {
 	db.once('open', function() {
 		console.log('mongodb ' + db.name + ' open...');
 
-		//model.user.find({}).exec(function(error, users)
-		//{
-		//    if (!users.length)
-		//    {
-		//        var salt = createSalt(),
-		//            hash = hashPassword('pass', salt);
-		//
-		//        model.user.create({
-		//            firstname: 'Andrew',
-		//            lastname: 'Sheppard',
-		//            username: 'DDN-Shep',
-		//            password: hash,
-		//            salt: salt
-		//        });
-		//    }
-		//});
+		user.find({}).exec(function(error, users) {
+			if (error) return console.error(error);
+
+			if (!users.length) {
+				var salt = identity.createSalt(),
+				    hash = identity.hashPassword('pass', salt);
+
+				user.create({
+					firstname: 'Andrew',
+					lastname: 'Sheppard',
+					username: 'DDN-Shep',
+					password: hash,
+					salt: salt
+				});
+			}
+		});
 	});
 };

@@ -1,3 +1,5 @@
+var crypto = require('crypto');
+
 (function(identity) {
 	identity.createSalt = function() {
 		return crypto.randomBytes(128).toString('base64');

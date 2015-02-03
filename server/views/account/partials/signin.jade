@@ -1,16 +1,16 @@
-form.form-horizontal
+form.form-horizontal(name='signInForm', ng-submit='signin()')
    fieldset
       legend Sign-in form
       .form-group
          label.col-sm-2.control-label(for='email') Email Address
          .col-sm-10
-            input.form-control(id='email', name='email', type='email', placeholder='Email', maxlength='100', required)
+            input.form-control(id='username', name='username', type='email', placeholder='Email', maxlength='100', required, ng-model='signInData.username')
             p.help-block Please enter your username / email address
       .form-group
          label.col-sm-2.control-label(for='password') Password
          .col-sm-10
-            input.form-control(id='password', name='password', type='password', placeholder='Password', maxlength='50', required)
+            input.form-control(id='password', name='password', type='password', placeholder='Password', maxlength='50', required, ng-model='signInData.password')
             p.help-block Please enter your secure password
       .form-group
          .col-sm-offset-2.col-sm-10
-            button.btn.btn-primary(id='signin', name='signin', type='submit') Sign In
+            button.btn.btn-primary(id='signin', name='signin', type='submit', ng-disabled='!signInForm.$valid') Sign In

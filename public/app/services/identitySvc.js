@@ -1,4 +1,4 @@
-angular.module('ddnApp').factory('identitySrvc', function() {
+angular.module('ddnApp').factory('identitySvc', function() {
 	return {
 		currentUser: undefined,
 		isAuthenticated: function() {

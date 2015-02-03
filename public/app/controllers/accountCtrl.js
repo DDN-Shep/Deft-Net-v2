@@ -1,34 +1,40 @@
-angular.module('ddnApp').controller('accountCtrl', ['$scope', '$http', 'toastrSrvc', 'identitySrvc',
-	function($scope, $http, toastrSrvc, identitySrvc) {
+angular.module('ddnApp').controller('accountCtrl', ['$scope', '$http', 'toastrSvc', 'identitySvc',
+	function($scope, $http, toastrSvc, identitySvc) {
 		console.log('accountCtrl loaded');
 
-		$scope.identity = identitySrvc;
+		$scope.identity = identitySvc;
+
+		$scope.signInData = {};
 
 		$scope.signin = function(username, password) {
+
+			username = username !== undefined ? username : $scope.signInData.username;
+			password = password !== undefined ? password : $scope.signInData.password;
+
 			console.log('Sign-in attempt: ' + username + ' - ' + password);
 
-			$http.post('/signin', {
+			$http.post('/api/account/signin', {
 				username: username,
 				password: password
 			}).then(function(response) {
 				if (response.data.success) {
-					identitySrvc.currentUser = response.data.user;
+					identitySvc.currentUser = response.data.user;
 
-					toastrSrvc.notify('Logged in!');
+					toastrSvc.info('Logged in!');
 				}
-				else toastrSrvc.notify('Log in failed...');
+				else toastrSvc.error('Log in failed...');
 			});
-		}
+		};
 
 		$scope.signout = function(username) {
 			console.log('Sign-out attempt: ' + username);
 
-			$http.post('/signout', {
+			$http.post('/api/account/signout', {
 				username: username
 			}).then(function() {
-				identitySrvc.currentUser = undefined;
+				identitySvc.currentUser = undefined;
 
-				toastrSrvc.notify('Signed out!');
+				toastrSvc.info('Signed out!');
 			});
-		}
+		};
 	}]);

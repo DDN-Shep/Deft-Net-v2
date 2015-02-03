@@ -13,13 +13,15 @@ angular.module('ddnApp').config(['$routeProvider', '$locationProvider', function
 			controller: 'mainCtrl'
 		})
 		.when('/account/signin', {
-			templateUrl: '/account/partials/signin'
+			templateUrl: '/account/partials/signin',
+			controller: 'accountCtrl'
 		})
 		.when('/account/signup', {
-			templateUrl: '/account/partials/signup'
+			templateUrl: '/account/partials/signup',
+			controller: 'accountCtrl'
 		})
-        .otherwise({
-            redirectTo: '/'
-        })
-    ;
+		.otherwise({
+			redirectTo: '/'
+		})
+	;
 }]);

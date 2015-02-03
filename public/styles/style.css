@@ -34,6 +34,9 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
   outline: 0;
   border: 0;
 }
+.ng-cloak {
+  display: none !important;
+}
 .well {
   padding: 10px;
 }
