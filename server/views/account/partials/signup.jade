@@ -19,12 +19,12 @@ form.form-horizontal
       .form-group
          label.col-sm-2.control-label(for='password') Password
          .col-sm-10
-            input.form-control(id='password', name='password', type='password', placeholder='Password', maxlength='50', required)
+            input.form-control(id='password', name='password', type='password', placeholder='Password', minlength='8', maxlength='50', required)
             p.help-block Please enter a secure password
       .form-group
          label.col-sm-2.control-label(for='confirm') Confirm Password
          .col-sm-10
-            input.col-sm-2.form-control(id='confirm', name='confirm', type='password', placeholder='Confirm Password', maxlength='50', required)
+            input.col-sm-2.form-control(id='confirm', name='confirm', type='password', placeholder='Confirm Password', minlength='8', maxlength='50', required)
             p.help-block Please confirm the secure password
       .form-group
          .col-sm-offset-2.col-sm-10

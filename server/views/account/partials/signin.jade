@@ -2,7 +2,7 @@ form.form-horizontal(name='signInForm', ng-submit='signin()')
    fieldset
       legend Sign-in form
       .form-group
-         label.col-sm-2.control-label(for='email') Email Address
+         label.col-sm-2.control-label(for='username') Email Address
          .col-sm-10
             input.form-control(id='username', name='username', type='email', placeholder='Email', maxlength='100', required, ng-model='signInData.username')
             p.help-block Please enter your username / email address

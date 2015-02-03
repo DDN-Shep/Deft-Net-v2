@@ -2,10 +2,12 @@
    h4 Categories
    .row
       .col-lg-6
-         ul.list-unstyled
-            li
-               a(href='{{ category.url }}') {{ category.name }}
+         ul.list-group
+            li.list-group-item
+                span.badge {{ category.count }}
+                a(href='{{ category.url }}') {{ category.name }}
       .col-lg-6
-         ul.list-unstyled
-            li
-               a(href='{{category.url }}') {{ category.name }}
+         ul.list-group
+            li.list-group-item
+                span.badge {{ category.count }}
+                a(href='{{ category.url }}') {{ category.name }}

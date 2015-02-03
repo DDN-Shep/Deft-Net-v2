@@ -11,7 +11,7 @@ module.exports = function(config) {
 	db.once('open', function() {
 		console.log('mongodb ' + db.name + ' open...');
 
-		user.find({}).exec(function(error, users) {
+		user.find().exec(function(error, users) {
 			if (error) return console.error(error);
 
 			if (!users.length) {
