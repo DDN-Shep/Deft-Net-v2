@@ -21,7 +21,26 @@ angular.module('ddnApp').config(['$routeProvider', '$locationProvider', function
 			controller: 'accountCtrl'
 		})
 		.otherwise({
-			redirectTo: '/'
-		})
-	;
+            redirectTo: '/portfolio/codepen'
+		});
+}]);
+
+angular.module('ddnPortfolio', ['ngResource', 'ngRoute']);
+
+angular.module('ddnPortfolio').config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    $locationProvider
+        .html5Mode({
+            enabled: false,
+            requireBase: false
+        });
+
+    $routeProvider
+        .when('/portfolio/codepen', {
+            templateUrl: '/portfolio/codepen/partials/pens',
+            controller: 'mainCtrl'
+        })
+        .otherwise({
+            redirectTo: '/portfolio/codepen'
+        })
+    ;
 }]);

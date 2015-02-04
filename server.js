@@ -14,7 +14,10 @@ var routes = {
 		user: require('./server/routes/api/user')
 	},
 	index: require('./server/routes/index'),
-	account: require('./server/routes/account')
+	account: require('./server/routes/account'),
+    portfolio: {
+        codepen: require('./server/routes/codepen')
+    }
 };
 
 var config = require('./config')[env],
@@ -34,11 +37,15 @@ app.use(parser.cookie());
 
 app.use('/', routes.index);
 app.use('/account', routes.account);
+app.use('/portfolio/codepen', routes.portfolio.codepen);
 
 app.use('/api/account', routes.api.account);
 app.use('/api/user', routes.api.user);
 
-//app.use('*', routes.index);
+//app.use('*', function(req, res, next)
+//{
+//    // 404
+//});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
