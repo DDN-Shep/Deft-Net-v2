@@ -1,5 +1,8 @@
+// DDN styles
+
 body
   padding: 50px
+
 p
   margin: 0px 0px 5.5px
 
@@ -14,7 +17,7 @@ p
 .ddn-va-bottom span
   vertical-align bottom
 
-// Browser cosmetic issues
+// Browser cosmetic OR functional issues
 
 a
 a:active
@@ -35,11 +38,30 @@ input[type="file"] > input[type="button"]::-moz-focus-inner
   outline 0
   border 0
 
+textarea
+  resize none
+
+// Angular resolved cosmetic issues
+
 .ng-cloak
   display none !important
 
+// Bootstrap modifications
+
+a
+a:active
+a:disabled
+a:focus
+a:hover
+a:link
+a:visited
+  color #fff
+
 .well
   padding 10px
+
+.navbar-form
+    margin 0.25px -15px
 
 .navbar-inverse
   background-color #008cba

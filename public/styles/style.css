@@ -34,11 +34,26 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
   outline: 0;
   border: 0;
 }
+textarea {
+  resize: none;
+}
 .ng-cloak {
   display: none !important;
 }
+a,
+a:active,
+a:disabled,
+a:focus,
+a:hover,
+a:link,
+a:visited {
+  color: #fff;
+}
 .well {
   padding: 10px;
+}
+.navbar-form {
+  margin: 0.25px -15px;
 }
 .navbar-inverse {
   background-color: #008cba;

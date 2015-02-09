@@ -1,15 +1,15 @@
-angular.module('ddnApp').controller('navCtrl', ['$scope', '$location', function($scope, $location) {
-	console.log('navCtrl loaded');
+angular.module('ddnApp')
+	.controller('navCtrl', ['$scope', '$location', 'navSvc',
+		function($scope, $location, navSvc) {
+			$scope.isActive = function(viewLocation) {
+				return navSvc.isActive($location, viewLocation);
+			};
+		}]);
 
-	$scope.isActive = function(viewLocation) {
-		return $location.path() === viewLocation;
-	};
-}]);
-
-angular.module('ddnPortfolio').controller('navCtrl', ['$scope', '$location', function($scope, $location) {
-    console.log('navCtrl loaded');
-
-    $scope.isActive = function(viewLocation) {
-        return $location.path() === viewLocation;
-    };
-}]);
+angular.module('ddnPortfolio')
+	.controller('navCtrl', ['$scope', '$location', 'navSvc',
+		function($scope, $location, navSvc) {
+			$scope.isActive = function(viewLocation) {
+				return navSvc.isActive($location, viewLocation);
+			};
+		}]);

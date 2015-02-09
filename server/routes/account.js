@@ -6,4 +6,8 @@ router.get('/partials/:name', function(req, res, next) {
 		res.render('account/partials/' + req.params.name);
 });
 
+router.post('/account/signin', function(req, res, next) {
+	// TODO
+});
+
 module.exports = router;

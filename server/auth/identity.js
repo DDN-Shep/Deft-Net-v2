@@ -10,4 +10,8 @@ var crypto = require('crypto');
 			? crypto.createHmac('sha1', salt).update(password).digest('hex')
 			: null;
 	};
+
+	identity.currentUser = function() {
+		return null; // TODO
+	};
 })(module.exports);

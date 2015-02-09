@@ -18,10 +18,20 @@ nav.navbar.navbar-inverse.navbar-fixed-top(ng-controller="navCtrl")
         .form-group
           input.form-control(type='text', placeholder='Search')
         button.btn.btn-default Search
-      ul.nav.navbar-nav.navbar-right
+      ul.nav.navbar-nav.navbar-right(ng-show='isAuthenticated')
+        li
+          .btn-group(dropdown)
+            button.btn.btn-primary Welcome {{ currentUser.name }}
+            button.btn.btn-primary.dropdown-toggle(dropdown-toggle)
+              span.caret
+            ul.dropdown-menu(role='menu')
+              li
+                a(href='/#/account/profile') Profile
+              li.divider
+              li
+                a(href='/#/account/signout') Sign out
+      ul.nav.navbar-nav.navbar-right(ng-hide='isAuthenticated')
         li(ng-class='{ active: isActive("/account/signup") }')
           a(href='/#/account/signup') Sign Up
         li(ng-class='{ active: isActive("/account/signin") }')
           a(href='/#/account/signin') Sign In
-        li
-          a(href='#') Welcome ...
