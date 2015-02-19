@@ -32,13 +32,13 @@ var schema   = {
 	module.getUsers = function(next) {
 		var result = null;
 
-		if (next)
-			user.find().exec(function(error, users) {
+		if (!next)
+			schema.user.find().exec(function(error, users) {
 				if (error) return console.error(error);
 
 				result = users;
 			});
-		else user.findOne({ _id: id }).exec(next);
+		else schema.user.findOne({ _id: id }).exec(next);
 
 		return result;
 	};
@@ -46,13 +46,13 @@ var schema   = {
 	module.getUser = function(id, next) {
 		var result = null;
 
-		if (next)
-			user.findOne({ _id: id }).exec(function(error, user) {
+		if (!next)
+			schema.user.findOne({ _id: id }).exec(function(error, user) {
 				if (error) return console.error(error);
 
 				result = user;
 			});
-		else user.findOne({ _id: id }).exec(next);
+		else schema.user.findOne({ _id: id }).exec(next);
 
 		return result;
 	};
@@ -60,13 +60,13 @@ var schema   = {
 	module.findUser = function(username, next) {
 		var result = null;
 
-		if (next)
-			user.findOne({ username: username }).exec(function(error, user) {
+		if (!next)
+			schema.user.findOne({ username: username }).exec(function(error, user) {
 				if (error) return console.error(error);
 
 				result = user;
 			});
-		else user.findOne({ username: username }).exec(next);
+		else schema.user.findOne({ username: username }).exec(next);
 
 		return result;
 	};

@@ -16,8 +16,8 @@ angular.module('ddnApp')
 					username: username,
 					password: password
 				}).then(function(response) {
-					if (response.data.success) {
-						identitySvc.currentUser = response.data.user;
+					if (response.data) {
+						identitySvc.currentUser = response.data;
 
 						toastrSvc.info('Logged in!');
 					}
