@@ -3,7 +3,7 @@ var express = require('express'),
     router  = express.Router();
 
 router.post('/signup', function(req, res, next) {
-	res.send({});
+	req.logout();
 	res.end();
 });
 

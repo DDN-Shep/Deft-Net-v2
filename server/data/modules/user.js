@@ -6,10 +6,10 @@ var schema   = {
 (function(module) {
 
 	module.seedUsers = function(next) {
-		user.find().exec(function(error, users) {
+		schema.user.find().exec(function(error, users) {
 			if (error) return console.error(error);
 
-			if (!users.length) module.addUsers([{
+			if (!users || !users.length) module.addUsers([{
 				firstname: 'Andrew',
 				lastname: 'Sheppard',
 				username: 'shep@ddn.com',
@@ -19,14 +19,16 @@ var schema   = {
 	};
 
 	module.addUsers = function(users, next) {
-		for (var user in users) {
+		for (var i in users) {
+            var user = users[i];
+
 			user.salt = identity.createSalt();
 			user.password = identity.hashPassword(user.password, user.salt);
 
 			schema.user.create(user);
 		}
 
-		next(null);
+		next();
 	};
 
 	module.getUsers = function(next) {

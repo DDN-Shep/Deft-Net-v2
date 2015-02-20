@@ -18,7 +18,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top(ng-controller="navCtrl")
         .form-group
           input.form-control(type='text', placeholder='Search')
         button.btn.btn-default Search
-      ul.nav.navbar-nav.navbar-right(ng-show='isAuthenticated')
+      ul.nav.navbar-nav.navbar-right(ng-show='identity.isAuthenticated()')
         li
           .btn-group(dropdown)
             button.btn.btn-primary Welcome {{ currentUser.name }}
@@ -30,7 +30,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top(ng-controller="navCtrl")
               li.divider
               li
                 a(href='/#/account/signout') Sign out
-      ul.nav.navbar-nav.navbar-right(ng-hide='isAuthenticated')
+      ul.nav.navbar-nav.navbar-right(ng-hide='identity.isAuthenticated()')
         li(ng-class='{ active: isActive("/account/signup") }')
           a(href='/#/account/signup') Sign Up
         li(ng-class='{ active: isActive("/account/signin") }')

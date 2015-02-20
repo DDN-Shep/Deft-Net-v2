@@ -38,7 +38,11 @@ app.use(logger(config.log));
 app.use(parser.body.json());
 app.use(parser.body.urlencoded({extended: false}));
 app.use(parser.cookie());
-app.use(session({secret: 'Deft-Net'}));
+app.use(session({
+    secret: '{Deft-Net | Andrew Sheppard}',
+    saveUninitialized: true,
+    resave: true
+}));
 
 passport.use(new local.Strategy(auth.authenticateUser));
 
@@ -47,7 +51,11 @@ passport.serializeUser(function(user, next) {
 });
 
 passport.deserializeUser(function(key, next) {
-	user.findUser(key, function(error, user) {
+    var module = {
+        user: require('./server/data/modules/user')
+    };
+
+    module.user.findUser(key, function(error, user) {
 		if (error) next(error, false);
 		else next(null, user);
 	});
