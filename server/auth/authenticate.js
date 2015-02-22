@@ -1,5 +1,5 @@
 var passport = require('passport'),
-		identity = require('./identity'),
+	identity = require('./identity'),
     user     = require('../data/modules/user');
 
 (function(auth) {

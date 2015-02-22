@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('ddnSvc')
 	.value('$toastr', toastr)
 	.factory('toastrSvc', ['$toastr', function($toastr) {

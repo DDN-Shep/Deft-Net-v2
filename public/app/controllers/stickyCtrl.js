@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('ddnApp', [])
 	.directive('ddnStickyWrapper', ['$window', function($window) {
 		var stickies = [],

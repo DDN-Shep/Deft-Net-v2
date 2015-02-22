@@ -1,12 +1,12 @@
 nav.navbar.navbar-inverse.navbar-fixed-top(ng-controller="navCtrl")
   .container
     .navbar-header
-      button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+      button.navbar-toggle(type='button', ng-click='isCollapsed = !isCollapsed')
         span.icon-bar
         span.icon-bar
         span.icon-bar
       a.navbar-brand(href='/#/') Deft-Net
-    .collapse.navbar-collapse
+    .collapse.navbar-collapse(collapse="isCollapsed")
       ul.nav.navbar-nav
         li(ng-class='{ active: isActive("/") }')
           a(href='/#/') Home
@@ -21,15 +21,14 @@ nav.navbar.navbar-inverse.navbar-fixed-top(ng-controller="navCtrl")
       ul.nav.navbar-nav.navbar-right(ng-show='identity.isAuthenticated()')
         li
           .btn-group(dropdown)
-            button.btn.btn-primary Welcome {{ currentUser.name }}
-            button.btn.btn-primary.dropdown-toggle(dropdown-toggle)
+            button.btn.btn-primary.dropdown-toggle(dropdown-toggle) Welcome {{ identity.currentUser.firstname }} &nbsp;
               span.caret
             ul.dropdown-menu(role='menu')
               li
                 a(href='/#/account/profile') Profile
               li.divider
               li
-                a(href='/#/account/signout') Sign out
+                a(href='/#/', ng-click='signout()') Sign out
       ul.nav.navbar-nav.navbar-right(ng-hide='identity.isAuthenticated()')
         li(ng-class='{ active: isActive("/account/signup") }')
           a(href='/#/account/signup') Sign Up

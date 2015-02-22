@@ -1,16 +1,15 @@
+'use strict';
+
 angular.module('ddnApp')
-	.controller('accountCtrl', ['$scope', '$http', 'toastrSvc', 'identitySvc',
-		function($scope, $http, toastrSvc, identitySvc) {
+	.controller('accountCtrl', ['$scope', '$location', '$http', 'toastrSvc', 'identitySvc',
+		function($scope, $location, $http, toastrSvc, identitySvc) {
 			$scope.identity = identitySvc;
 
 			$scope.signInData = {};
 
 			$scope.signin = function(username, password) {
-
 				username = username !== undefined ? username : $scope.signInData.username;
 				password = password !== undefined ? password : $scope.signInData.password;
-
-				console.log('Sign-in attempt: ' + username + ' - ' + password);
 
 				$http.post('/api/account/signin', {
 					username: username,
@@ -19,6 +18,8 @@ angular.module('ddnApp')
 					if (response.data) {
 						identitySvc.currentUser = response.data;
 
+                        $location.path('/');
+
 						toastrSvc.info('Logged in!');
 					}
 					else toastrSvc.error('Log in failed...');
@@ -26,8 +27,6 @@ angular.module('ddnApp')
 			};
 
 			$scope.signout = function(username) {
-				console.log('Sign-out attempt: ' + username);
-
 				$http.post('/api/account/signout', {
 					username: username
 				}).then(function() {

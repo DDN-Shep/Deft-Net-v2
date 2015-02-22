@@ -2,20 +2,18 @@ var express = require('express'),
     router  = express.Router();
 
 router.get('/', function(req, res, next) {
-    var injection;
+    var inject = {};
 
     if (req.user)
     {
-        injection = {
-            user: {
-                username: req.user.username,
-                firstname: req.user.firstname,
-                lastname: req.user.lastname
-            }
+        inject.user = {
+            username: req.user.username,
+            firstname: req.user.firstname,
+            lastname: req.user.lastname
         };
     }
 
-    res.render('shared/layout', injection);
+    res.render('shared/layout', { inject: inject });
 });
 
 router.get('/partials/:name', function(req, res, next) {

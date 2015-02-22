@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('ddnSvc', []);
 
 angular.module('ddnApp', ['ddnSvc', 'ngResource', 'ngRoute', 'ui.bootstrap'])
@@ -16,10 +18,10 @@ angular.module('ddnApp', ['ddnSvc', 'ngResource', 'ngRoute', 'ui.bootstrap'])
 				templateUrl: '/account/partials/signin',
 				controller: 'accountCtrl'
 			})
-			.when('/account/signup', {
-				templateUrl: '/account/partials/signup',
-				controller: 'accountCtrl'
-			})
+            .when('/account/signup', {
+                templateUrl: '/account/partials/signup',
+                controller: 'accountCtrl'
+            })
 			.otherwise({
 				redirectTo: '/'
 			});

@@ -1,7 +1,10 @@
+'use strict';
+
 angular.module('ddnSvc')
 	.factory('identitySvc', ['$window', function($window) {
-        var currentUser = $window.ddnInject && $window.ddnInject.user
-            ? $window.ddnInject.user
+
+        var currentUser = $window.ddn && $window.ddn.user
+            ? $window.ddn.user
             : undefined;
 
 		return {
